@@ -5,6 +5,9 @@ let msgContainer = document.querySelector(".msg-container");
 let msg = document.querySelector("#msg");
 
 let turnO = true; // playerX, playerO
+let count =0; // count the no. of times a button is clicked
+let winner ="";
+
 
 // 2D Arrays
 const win_pattern = [
@@ -37,6 +40,7 @@ boxes.forEach((box) => {
         box.disabled = true;
 
         checkWinner();
+        checkDraw();
     })
 })
 
@@ -70,10 +74,17 @@ const checkWinner = () => {
                 console.log(`${val1} is the winner`);
                 disableBoxes();
                 showWinner(val1); 
+                winner = val1;
             }
         }
     }
 };
 
+const checkDraw = () => {
+    if(count === 9 && winner===""){
+        msg.innerText = "This Game is a Draw";
+        msgContainer.classList.remove("hide"); 
+    }
+};
 resetBtn.addEventListener("click" ,resetGame);
 newBtn.addEventListener("click" ,resetGame);
