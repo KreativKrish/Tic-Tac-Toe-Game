@@ -8,7 +8,6 @@ let turnO = true; // playerX, playerO
 let count =0; // count the no. of times a button is clicked
 let winner ="";
 
-
 // 2D Arrays
 const win_pattern = [
     [0,1,2],
@@ -81,7 +80,7 @@ const checkWinner = () => {
 };
 
 const checkDraw = () => {
-    if(count === 9 && winner===""){
+    if(count === 9 && winner === ""){
         msg.innerText = "This Game is a Draw";
         msgContainer.classList.remove("hide"); 
     }
