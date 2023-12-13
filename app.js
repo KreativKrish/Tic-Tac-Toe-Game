@@ -28,7 +28,7 @@ const resetGame =() => {
 
 boxes.forEach((box) => {
     box.addEventListener("click",() => {
-        console.log("box was clicked");
+        count++;
         if (turnO){ //player0
             box.innerText = "O";
             turnO = false;
