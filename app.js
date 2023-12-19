@@ -22,6 +22,8 @@ const win_pattern = [
 
 const resetGame =() => {
     turnO =true;
+    count = 0;
+    winner ="";
     enableBoxes();
     msgContainer.classList.add("hide");
 };
@@ -39,7 +41,6 @@ boxes.forEach((box) => {
         box.disabled = true;
 
         checkWinner();
-        checkDraw();
     })
 })
 
@@ -75,12 +76,15 @@ const checkWinner = () => {
                 showWinner(val1); 
                 winner = val1;
             }
+            else {
+                checkDraw(winner);
+            }
         }
     }
 };
 
-const checkDraw = () => {
-    if(count === 9 && winner === ""){
+const checkDraw = (winner) => {
+    if(count === 9 && winner===""){
         msg.innerText = "This Game is a Draw";
         msgContainer.classList.remove("hide"); 
     }
